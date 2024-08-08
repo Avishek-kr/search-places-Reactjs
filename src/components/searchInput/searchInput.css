@@ -34,7 +34,7 @@
   font-size: 12px;
 }
 
-.searchInput.active {
+.searchInput--active {
   border-color: #7952b3;
   box-shadow: 0 0 0 3px rgba(121, 82, 179, 0.25);
 }
