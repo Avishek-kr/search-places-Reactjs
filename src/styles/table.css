@@ -10,16 +10,25 @@
   padding: 8px;
 }
 
-.data-table th {
-  background-color: #f2f2f2;
-  text-align: left;
+tbody[aria-live="polite"] > tr td:first-child {
   font-weight: 700;
 }
 
+.data-table th, .data-table td img {
+  vertical-align: middle;
+}
+
+.data-table th {
+  text-align: left;
+  font-weight: 700;
+  border-bottom: 1px solid #000000;
+}
+
 .flag {
-  width: 20px;
-  height: 15px;
+  width: 26px;
+  height: 26px;
   margin-right: 5px;
+  margin-bottom: 5px;
 }
 
 .no-results,
@@ -78,10 +87,5 @@
   .no-results,
   .start-searching {
     font-size: 12px;
-  }
-
-  .flag {
-    width: 15px;
-    height: 10px;
   }
 }

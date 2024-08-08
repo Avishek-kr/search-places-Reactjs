@@ -2,7 +2,7 @@
 
 - **Search Functionality:** Users can search for places using a search input component.
 - **Pagination:** Handles pagination with customizable items per page.
-- **Debounce:** Implements debounce functionality for search input and pagination to prevent unnecessary API calls and improve responsiveness.
+- **Debounce:** Implements debounce functionality for pagination to prevent unnecessary API calls and improve responsiveness.
 - **Error Handling:** Displays error notifications if data fetching fails.
 - **Loading State:** Shows a loader while data is being fetched.
 
@@ -54,9 +54,8 @@ Make sure you have the following installed:
 ## Key Points of Recent Updates
 
 - **Debounce Implementation:**
-  - **Search Input:** Added debounce to the search input to delay API calls until the user stops typing.
   - **Pagination:** Added debounce to the items per page input to prevent excessive re-renders and API calls.
-  - **useDebounce Hook:** Created a custom hook for handling debounce logic in both components.
+  - **useDebounce Hook:** Created a custom hook for handling debounce logic in components.
 
 - **State Management:**
   - **Empty Input Handling:** Updated logic to prevent API calls when the search input is empty and maintain the current UI state.

@@ -26,7 +26,7 @@ const Pagination = ({ currentPage, totalPages, onPageChange, onItemsPerPageChang
           disabled={currentPage === 1}
           aria-label="Previous page"
         >
-          &lt;
+        &#10148;
         </button>
         <span><b>{currentPage}</b> of {totalPages}</span>
         <button
@@ -34,7 +34,7 @@ const Pagination = ({ currentPage, totalPages, onPageChange, onItemsPerPageChang
         disabled={currentPage === totalPages}
         aria-label="Next page"
         >
-        &gt;
+        &#10148;
         </button>
         </div> : null
       }

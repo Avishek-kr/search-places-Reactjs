@@ -1,20 +1,11 @@
 import { useState, useEffect, useRef } from 'react';
 import PropTypes from 'prop-types';
 import './searchInput.css';
-import useDebounce from '../hooks/UseDebounce';
 
-const SearchInput = ({ placeholder, variant, onSearch }) => {
+const SearchInput = ({ placeholder, variant, onSearch, isLoading }) => {
   const [value, setValue] = useState('');
   const [isFocused, setIsFocused] = useState(false);
   const inputRef = useRef(null);
-
-  const debouncedValue = useDebounce(value, 400); // Debounce delay
-
-  useEffect(() => {
-    if (debouncedValue) {
-      onSearch(debouncedValue);
-    }
-  }, [debouncedValue, onSearch]);
 
   useEffect(() => {
     const handleKeyDown = (event) => {
@@ -22,7 +13,8 @@ const SearchInput = ({ placeholder, variant, onSearch }) => {
         inputRef.current.focus();
       }
       if (event.key === 'Enter') {
-        inputRef.current.focus();
+        event.preventDefault();
+        onSearch(value); 
       }
     };
 
@@ -30,7 +22,7 @@ const SearchInput = ({ placeholder, variant, onSearch }) => {
     return () => {
       window.removeEventListener('keydown', handleKeyDown);
     };
-  }, []);
+  }, [value, onSearch]);
 
   const handleFocus = () => setIsFocused(true);
   const handleBlur = () => setIsFocused(false);
@@ -39,7 +31,7 @@ const SearchInput = ({ placeholder, variant, onSearch }) => {
     ? 'searchInput--active' : value ? 'searchInput--filled' : ''}`;
 
   return (
-    <div className={className}>
+    <div className={className} disabled={isLoading}>
       <input
         type="text"
         aria-label={placeholder}
@@ -59,6 +51,7 @@ SearchInput.propTypes = {
   placeholder: PropTypes.string.isRequired,
   variant: PropTypes.string,
   onSearch: PropTypes.func.isRequired,
+  isLoading: PropTypes.string,
 };
 
 export default SearchInput;

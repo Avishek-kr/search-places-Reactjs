@@ -1,7 +1,8 @@
 .items-per-page {
   margin-left: auto;
   display: flex;
-  align-items: center;
+  align-items: baseline;
+  font-weight: 600;
 }
 
 .pagination {
@@ -21,6 +22,10 @@
   margin: 0 5px;
 }
 
+.pagination button[aria-label="Previous page"] {
+  transform: scaleX(-1);
+}
+
 .pagination-container {
   flex-wrap: wrap;
   justify-content: space-between;
@@ -35,7 +40,6 @@
 
 .items-per-page input {
   margin-left: 5px;
-  width: 50px;
   padding: 5px;
   border-radius: 4px;
   border: 1px solid #ccc;

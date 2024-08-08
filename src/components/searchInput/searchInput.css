@@ -13,6 +13,12 @@
   background-color: rgb(255, 255, 255);
 }
 
+.searchInput.default[disabled] {
+  background: rgb(233, 236, 239);
+  Border-color: rgb(206, 212, 218);
+  box-shadow: none;
+}
+
 .searchInput input {
   width: calc(100% - 60px);
   border: none;

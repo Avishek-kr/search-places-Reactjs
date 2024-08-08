@@ -39,6 +39,7 @@ const App = () => {
           },
         });
         setIsLoading(false);
+        setError(false);
         setData(response.data.data);
         setTotalCitiesCount(response.data.metadata.totalCount);
         setTotalPages(Math.ceil(response.data.metadata.totalCount / limit));
@@ -71,6 +72,7 @@ const App = () => {
         placeholder="Search places..."
         variant="default"
         onSearch={handleSearch}
+        isLoading={isLoading}
       />
       {isLoading && <Loader />}
       {error && <ErrorNotification message={error} />}
